@@ -1,0 +1,75 @@
+#login{
+    min-height:100vh;
+    @include mainSection;
+    justify-content:space-between;
+
+    & section{
+        width:100%;
+
+        @include response(md){
+            width:50%;
+        }
+        
+        &.loginForm{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            & .form{
+                @include style-form;
+                padding:4rem 3rem;
+                width:90%;
+
+                @include response(md){
+                    padding:4.5rem 3rem;
+                    width:80%;
+                }
+
+                & h1{
+                    margin:0 0 0.25rem;
+
+                    @include response(md){
+                        margin:0 0 2.5rem;
+                    }
+                }
+                & input{
+                    font-size:$font-size-input-small;
+                    margin:1.75rem 0 1.25rem;
+
+                    @include response(md){
+                        font-size:$font-size-input;
+                        margin:1.75rem 0 1rem;
+                    }
+                }
+                & .buttonLogin{
+                    display:flex;
+                    justify-content:center;
+
+                    & button{
+                        margin:1rem 0 1.25rem;
+                        $font-size-inter:0.9rem;
+
+                        @include response(md){
+                            font-size:$font-size-normal;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.loginImg{
+            display:none;
+
+            @include response(md){
+                display:inline;
+            }
+
+            & img{
+                object-fit:contain;
+                width:100%;
+                height:100%;
+            }
+        }
+    }
+
+}

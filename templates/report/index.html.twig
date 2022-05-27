@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Report index{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<div id="indexReports">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Post</th>
+                <th>Denunciante</th>
+                <th>Revisado</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for report in reports %}
+            <tr>
+                <td width="80%">{{ report.description }}</td>
+                <td><a href="/post/{{report.idPost.id}}"><u>{{ report.idPost.id }}</u></a></td>
+                <td><a href="/user/{{report.idUser}}"><u>{{ report.idUser }}</u></a></td>
+                {% if report.revisado == false %}
+                <td><a href="/report/check/{{report.id}}"><img src="/img/unchecked.svg" alt="unchecked" class="imgCheck"/></a></td>
+                {% else %}
+                <td><img src="/img/checked.svg" alt="checked" class="imgCheck"/></td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No hay denuncias</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{{include('_footer.html.twig')}}
+
+{% endblock %}

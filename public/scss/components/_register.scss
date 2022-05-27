@@ -1,0 +1,54 @@
+#register{
+    min-height:100vh;
+    @include mainSection;
+    align-items:center;
+
+    & form{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        margin:0 auto;
+        @include style-form;
+        width:90%;
+        padding:4rem 3rem;
+
+        @include response(md){
+            width:48%;
+            padding:3rem 5rem;
+        }
+
+        & h1{
+            margin:0 0 1.75rem;
+
+            @include response(md){
+                margin:0 0 2rem;
+            }
+        }
+
+        & label{
+            display:none;
+        }
+        & div{
+            width:100%;
+            
+            & input{
+                width:100%;
+            }
+        }
+        & div:not(.fechaNac){
+            display:flex;
+            flex-direction:column;
+            align-items:center; 
+            margin: 0 0 1.25rem;           
+        }
+        & button{
+            margin:0 0 1.25rem;
+            font-size:$font-size-inter;
+
+            @include response(md){
+                font-size:$font-size-normal;
+            }
+        }
+    }
+}

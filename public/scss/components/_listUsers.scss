@@ -1,0 +1,20 @@
+#listUsers{
+    @include mainSection;
+    flex-direction:column;
+
+    & div{
+        border-bottom:1px solid $border-grey;
+        padding:0.5rem 0;
+
+        & img{
+            width:1.75rem;
+            border-radius:50%;
+            border:1px solid $purple;
+            margin:0 0.5rem 0 0;
+
+            @include response(md){
+                width:2.5rem;
+            }
+        }
+    }
+}

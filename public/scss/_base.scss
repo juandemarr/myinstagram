@@ -1,0 +1,164 @@
+@font-face {
+    font-family: "title";
+    src: url("/fonts/DancingScript-Regular.ttf");
+}
+
+//VARIABLES
+$font-size-title:2rem;
+$font-size-title-small:1.3rem;
+$font-size-normal:1rem;
+$font-size-inter:0.9rem;
+$font-size-small-inter:0.8rem;
+$font-size-small:0.7rem;
+$font-size-input:1rem;
+$font-size-input-small:0.8rem;
+$font-h4:1.5rem;
+$font-h4-small:1rem;
+
+$purple:#800080;
+$white:#fff;
+$black:#000;
+$header-bgcolor:#f7f7f7;
+$body-bgcolor:#e7e7e7;
+$border-grey:#bdbdbd;
+
+//MIXINS
+@mixin response($var){
+    @if $var == sm{
+        @media (min-width : 576px){
+            @content;
+        }
+    }@else if $var == md{
+        @media (min-width : 768px){
+            @content;
+        }
+    }@else if $var == lg{
+        @media (min-width : 992px){
+            @content;
+        }
+    }@else if $var == xl{
+        @media (min-width : 1500px){
+            @content;
+        }
+    }
+}
+
+@mixin mainSection{
+    width:90%;
+    margin:0 auto;
+    display:flex;
+    flex:1 0 auto;
+
+    @include response(md){
+        width:70%;
+    }
+}
+
+@mixin style-form{
+    background-color:$header-bgcolor;
+    border:1px solid $border-grey;
+    border-radius:5px;
+}
+@mixin textarea{
+    resize:none;
+    height:3rem;
+    padding:0.25rem 0.5rem;
+
+    @include response(md){
+        height:4rem;
+    }
+}
+
+
+//CAHNGING BOOTSTRAP
+a{
+    color:unset;
+
+    &:hover{
+        color:unset;
+        text-decoration:none;
+    }
+}
+.btn{
+    padding:0.2rem 0.65rem;
+    font-size:$font-size-small;
+
+    @include response(md){
+        padding:0.25rem 0.65rem;
+        font-size:$font-size-normal;
+    }
+}
+.btnEnlace{
+    color:$purple;
+    font-size:$font-size-small-inter;
+    text-decoration:underline;
+    background-color:unset;
+    border:unset;
+
+    &:hover{
+        color:$purple;
+        text-decoration:underline;
+    }
+}
+.btn-danger{
+
+    &:hover{
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    &:active{
+        background-color: #dc3545!important;
+        border-color: #dc3545!important;
+    }
+
+    &:focus{
+        background-color: #dc3545!important;
+        border-color: #dc3545!important;
+        box-shadow:none!important;
+    }
+}
+
+.btn-primary{
+    background-color:$purple;
+    border:none;
+
+    &:hover{
+        background-color:$purple;
+    }
+    &:active{
+        background-color:$purple!important;
+    }
+
+    &:focus{
+        background-color:$purple;
+        box-shadow:unset!important;
+    }
+}
+.form-control{
+    padding:0rem 0.5rem;
+    height:2rem;
+    
+    &:focus{
+        box-shadow:unset;
+        border-color:$purple;
+    }
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color:$purple;
+}
+
+////////////////////////
+p{
+    margin:0;
+}
+
+.aLogin{
+    color:$purple;
+    text-decoration:underline;
+
+    &:hover{
+        color:$purple;
+        text-decoration:underline;
+    }
+}

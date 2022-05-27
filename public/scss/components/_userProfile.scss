@@ -1,0 +1,74 @@
+#userProfile{
+    @include mainSection;
+    flex-direction: column;
+    //margin-top:-0.5rem;
+
+    & .dataUser{
+        display:flex;
+        width:100%;
+        align-items:center;
+        margin:0 0 1.5rem;
+
+        & img{
+            border-radius:50%;
+            width:4rem;
+            height:4rem;
+            border:2px solid $purple;
+
+            @include response(md){
+                width:9rem;
+                height:9rem;
+                border:3px solid $purple;
+            }
+        }
+
+        & .data{
+            width:100%;
+            display:flex;
+            flex-direction:column;
+            margin:0 1rem;
+
+            & .title-h2{
+                font-size:$font-size-title-small;
+                margin:0 0 0.5rem;
+
+                @include response(md){
+                    font-size:$font-size-title;
+                    margin:0 0 1rem;
+                }
+            }
+
+            & .btnFollow{
+                height:2.25rem;
+                width:5.25rem;
+            }
+
+            & .title-h4{
+                font-size:$font-h4-small;
+
+                @include response(md){
+                    font-size:$font-h4;
+                }
+            }
+            & .userDescription{
+               
+
+                @include response(md){
+                    margin:0.5rem 0;
+                }
+            }
+
+            @include response(md){
+                margin:0 2rem;  
+            }
+
+            @include response(lg){
+                margin:0 6rem;  
+            }
+        }
+
+        @include response(md){
+            margin:0 0 3rem;
+        }
+    }
+}

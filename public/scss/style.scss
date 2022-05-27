@@ -1,0 +1,45 @@
+@import 'base';
+
+//MOBILE FIRST
+
+*{
+    box-sizing:border-box;
+}
+body{
+    background-color:$body-bgcolor;
+    font-size:$font-size-small;
+    min-height:120vh;
+    display:flex;
+    flex-direction:column;
+
+    @include response(md){
+        font-size:$font-size-normal;
+    }
+}
+h1{
+    font-family:"title",cursive;
+    font-size:$font-size-title-small;
+
+    @include response(md){
+        font-size:$font-size-title;
+    }
+}
+
+@import './components/header';
+@import './components/login';
+@import './components/register';
+@import './components/newP_editP_editU_editC_newRepost';
+@import './components/footer';
+@import './components/main_userProfile';
+@import './components/userProfile';
+@import './components/showPost';
+@import './components/listUsers';
+@import './components/indexReports';
+@import './components/analytics';
+
+
+
+
+
+
+

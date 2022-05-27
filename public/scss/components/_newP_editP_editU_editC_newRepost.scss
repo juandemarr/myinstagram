@@ -1,0 +1,25 @@
+#newPost,#editPost,#editUser,#editComment,#newRepost{
+    @include mainSection;
+    flex-direction:column;
+
+    & div{
+        margin: 0 0 1rem;
+
+        & label{
+            margin:0 0.5rem 0 0;
+        }
+    
+        & label.desc{
+            display:none;
+        }
+
+        & textarea{
+            @include textarea;
+        }
+    }
+    
+    & .btnDeleteAccount{
+        margin:2.25rem 0 0;
+        width:8rem;
+    }
+}

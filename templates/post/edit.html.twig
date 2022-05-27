@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar publicación{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="editPost">
+    {{ form_start(form) }}
+        {{ form_row(form.foto) }}
+        {{ form_row(form.descripcion) }}
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    {{ form_end(form) }}
+    {#{{ include('post/_form.html.twig', {'button_label': 'Actualizar'}) }}#}
+
+</section>
+    {# {{ include('post/_delete_form.html.twig') }} #}
+{{include('_footer.html.twig')}}
+
+{% endblock %}

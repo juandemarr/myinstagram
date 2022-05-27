@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{usuario.nombreUsuario}}{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="userProfile">
+    <section class="dataUser">
+        <img src="/databaseImg/{{usuario.fotoPerfil}}" alt="{{usuario.nombreCompleto}}"/>
+        <div class="data">
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="title-h2">{{usuario.nombreCompleto}}</p>
+                
+                {% if app.user != usuario %}
+                    {% if app.user in usuario.followers %}    
+                        <a href="/user/unfollow/{{usuario.nombreUsuario}}" class="btn btn-primary">Dejar de seguir</a>
+                    {% else %}
+                        <a href="/user/follow/{{usuario.nombreUsuario}}" class="btn btn-primary">Seguir</a>
+                    {% endif %}
+                {% endif %}
+
+            </div>
+            <p class="title-h4">@{{usuario.nombreUsuario}}</p>
+            <p class="userDescription">{{usuario.descripcion}}</p>
+            <div class="d-flex justify-content-between">
+                <p>Nº publicaciones: {{usuario.getTotalPosts|length}}</p>
+                <a href="/user/{{usuario.nombreUsuario}}/followers">Seguidores: {{followers|length}}</a>
+                <a href="/user/{{usuario.nombreUsuario}}/followed">Siguiendo: {{followed|length}}</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="posts">
+        {% for post in posts %}
+        <div class="post">
+            
+            <img src="/databaseImg/{{post.foto}}" alt={{post.foto}} />
+            
+            <div class="icons" onclick="window.location='/post/{{post.id}}'">
+                
+                {% if app.user == usuario %}
+                <div class="userDivIcons">
+                    <a href="/post/edit/{{post.id}}"><img src="/img/edit.png" alt="Editar post"/></a>
+                </div>
+
+                <div>
+                    <form method="post" action="{{ path('post_delete', {'id': post.id}) }}" onsubmit="return confirm('¿Quieres borrar este post?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ post.id) }}">
+                        <button class="btnEnlace"><img src="/img/delete.svg" alt="Eliminar post"/></button>
+                    </form>
+                </div>
+
+                {% elseif is_granted('ROLE_ADMIN')%}
+                    <div class="userDivIcons">
+                        {% if post in app.user.getLikesPost%}
+                            <a href="/post/remove_like/{{post.id}}"><img src="/img/like.png" alt="like"/></a>
+                        {% else %}
+                            <a href="/post/like/{{post.id}}"><img src="/img/dislike.png" alt="like"/></a>
+                        {% endif %}  
+                        <p class="text-center">{{post.getLikes|length}}</p>
+                    </div>
+
+                    <div class="userDivIcons">
+                        <a href="/post/{{post.id}}"><img src="/img/comment.png" alt="like"/></a>
+                        <p class="text-center">{{post.getComments|length}}</p>
+                    </div>
+
+                    <div>
+                        <form method="post" action="{{ path('post_delete', {'id': post.id}) }}" onsubmit="return confirm('¿Quieres borrar este post?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ post.id) }}">
+                            <button class="btnEnlace"><img src="/img/delete.svg" alt="Eliminar post"/></button>
+                        </form>
+                    </div>
+                    
+                {% else %}
+                <div class="userDivIcons">
+                    {% if post in app.user.getLikesPost%}
+                        <a href="/post/remove_like/{{post.id}}"><img src="/img/like.png" alt="like"/></a>
+                    {% else %}
+                        <a href="/post/like/{{post.id}}"><img src="/img/dislike.png" alt="like"/></a>
+                    {% endif %}  
+                    <p class="text-center">{{post.getLikes|length}}</p>
+                </div>
+
+                <div>
+                    <a href="/post/{{post.id}}"><img src="/img/comment.png" alt="like"/></a>
+                    <p class="text-center">{{post.getComments|length}}</p>
+                </div>
+                {% endif %}
+
+            </div>
+            
+        </div>
+        {% endfor %}
+    </section>
+</section>
+
+{{include('_footer.html.twig')}}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Report{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="newRepost">
+    <p class="mb-3">Indícanos el motivo de la denuncia</p>
+    {{ include('report/_form.html.twig') }}
+</section>
+
+{{include('_footer.html.twig')}}
+
+{% endblock %}

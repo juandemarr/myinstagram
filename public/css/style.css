@@ -1,0 +1,807 @@
+@font-face {
+  font-family: "title";
+  src: url("/fonts/DancingScript-Regular.ttf");
+}
+a {
+  color: unset;
+}
+a:hover {
+  color: unset;
+  text-decoration: none;
+}
+
+.btn {
+  padding: 0.2rem 0.65rem;
+  font-size: 0.7rem;
+}
+@media (min-width: 768px) {
+  .btn {
+    padding: 0.25rem 0.65rem;
+    font-size: 1rem;
+  }
+}
+
+.btnEnlace {
+  color: #800080;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  background-color: unset;
+  border: unset;
+}
+.btnEnlace:hover {
+  color: #800080;
+  text-decoration: underline;
+}
+
+.btn-danger:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.btn-danger:active {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+.btn-danger:focus {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  box-shadow: none !important;
+}
+
+.btn-primary {
+  background-color: #800080;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: #800080;
+}
+.btn-primary:active {
+  background-color: #800080 !important;
+}
+.btn-primary:focus {
+  background-color: #800080;
+  box-shadow: unset !important;
+}
+
+.form-control {
+  padding: 0rem 0.5rem;
+  height: 2rem;
+}
+.form-control:focus {
+  box-shadow: unset;
+  border-color: #800080;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  background-color: #800080;
+}
+
+p {
+  margin: 0;
+}
+
+.aLogin {
+  color: #800080;
+  text-decoration: underline;
+}
+.aLogin:hover {
+  color: #800080;
+  text-decoration: underline;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e7e7e7;
+  font-size: 0.7rem;
+  min-height: 120vh;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+h1 {
+  font-family: "title", cursive;
+  font-size: 1.3rem;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.25rem 0;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #bdbdbd;
+  position: sticky;
+  margin: 0 0 1rem;
+  top: 0;
+  z-index: 99;
+}
+@media (min-width: 768px) {
+  header {
+    padding: 0.5rem 0;
+    margin: 0 0 1.5rem;
+  }
+}
+header h1 {
+  font-size: 1rem;
+  margin: 0 0 0.25rem;
+}
+@media (min-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+}
+header form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header input[type=search] {
+  border: 1px solid #CACACA;
+  border-radius: 5px;
+  padding: 0.2rem 0.2rem;
+  width: 9rem;
+}
+@media (min-width: 768px) {
+  header input[type=search] {
+    width: 15rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+header #search {
+  background-image: url("/img/iconSearch.svg");
+  background-position: center;
+  background-size: contain;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: none;
+  border: none;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  margin-left: 0.25rem;
+}
+@media (min-width: 768px) {
+  header #search {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+header .divImage {
+  cursor: pointer;
+}
+header img {
+  width: 1.75rem;
+  border-radius: 50%;
+  border: 2px solid #800080;
+}
+@media (min-width: 768px) {
+  header img {
+    width: 3rem;
+  }
+}
+header h1 a {
+  color: unset;
+}
+header h1 a:hover {
+  text-decoration: unset;
+  color: unset;
+}
+
+#login {
+  min-height: 100vh;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+  #login {
+    width: 70%;
+  }
+}
+#login section {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  #login section {
+    width: 50%;
+  }
+}
+#login section.loginForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#login section.loginForm .form {
+  background-color: #f7f7f7;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  padding: 4rem 3rem;
+  width: 90%;
+}
+@media (min-width: 768px) {
+  #login section.loginForm .form {
+    padding: 4.5rem 3rem;
+    width: 80%;
+  }
+}
+#login section.loginForm .form h1 {
+  margin: 0 0 0.25rem;
+}
+@media (min-width: 768px) {
+  #login section.loginForm .form h1 {
+    margin: 0 0 2.5rem;
+  }
+}
+#login section.loginForm .form input {
+  font-size: 0.8rem;
+  margin: 1.75rem 0 1.25rem;
+}
+@media (min-width: 768px) {
+  #login section.loginForm .form input {
+    font-size: 1rem;
+    margin: 1.75rem 0 1rem;
+  }
+}
+#login section.loginForm .form .buttonLogin {
+  display: flex;
+  justify-content: center;
+}
+#login section.loginForm .form .buttonLogin button {
+  margin: 1rem 0 1.25rem;
+}
+@media (min-width: 768px) {
+  #login section.loginForm .form .buttonLogin button {
+    font-size: 1rem;
+  }
+}
+#login section.loginImg {
+  display: none;
+}
+@media (min-width: 768px) {
+  #login section.loginImg {
+    display: inline;
+  }
+}
+#login section.loginImg img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+#register {
+  min-height: 100vh;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  #register {
+    width: 70%;
+  }
+}
+#register form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #f7f7f7;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  width: 90%;
+  padding: 4rem 3rem;
+}
+@media (min-width: 768px) {
+  #register form {
+    width: 48%;
+    padding: 3rem 5rem;
+  }
+}
+#register form h1 {
+  margin: 0 0 1.75rem;
+}
+@media (min-width: 768px) {
+  #register form h1 {
+    margin: 0 0 2rem;
+  }
+}
+#register form label {
+  display: none;
+}
+#register form div {
+  width: 100%;
+}
+#register form div input {
+  width: 100%;
+}
+#register form div:not(.fechaNac) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 1.25rem;
+}
+#register form button {
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+}
+@media (min-width: 768px) {
+  #register form button {
+    font-size: 1rem;
+  }
+}
+
+#newPost, #editPost, #editUser, #editComment, #newRepost {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  #newPost, #editPost, #editUser, #editComment, #newRepost {
+    width: 70%;
+  }
+}
+#newPost div, #editPost div, #editUser div, #editComment div, #newRepost div {
+  margin: 0 0 1rem;
+}
+#newPost div label, #editPost div label, #editUser div label, #editComment div label, #newRepost div label {
+  margin: 0 0.5rem 0 0;
+}
+#newPost div label.desc, #editPost div label.desc, #editUser div label.desc, #editComment div label.desc, #newRepost div label.desc {
+  display: none;
+}
+#newPost div textarea, #editPost div textarea, #editUser div textarea, #editComment div textarea, #newRepost div textarea {
+  resize: none;
+  height: 3rem;
+  padding: 0.25rem 0.5rem;
+}
+@media (min-width: 768px) {
+  #newPost div textarea, #editPost div textarea, #editUser div textarea, #editComment div textarea, #newRepost div textarea {
+    height: 4rem;
+  }
+}
+#newPost .btnDeleteAccount, #editPost .btnDeleteAccount, #editUser .btnDeleteAccount, #editComment .btnDeleteAccount, #newRepost .btnDeleteAccount {
+  margin: 2.25rem 0 0;
+  width: 8rem;
+}
+
+footer {
+  flex: 0 0 auto;
+  border-top: 1px solid #bdbdbd;
+  padding: 1rem;
+  margin: 1.5rem 0 0;
+}
+footer p {
+  margin: 0 0 0.5rem;
+  line-height: 18px;
+}
+@media (min-width: 768px) {
+  footer p {
+    line-height: 26px;
+  }
+}
+footer a {
+  color: #800080;
+  text-decoration: underline;
+}
+@media (min-width: 768px) {
+  footer {
+    margin: 3rem 0 0;
+    padding: 1.5rem 9rem;
+  }
+}
+
+#main, #userProfile {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  #main, #userProfile {
+    width: 70%;
+  }
+}
+#main .btnNewPost, #userProfile .btnNewPost {
+  margin: 0 0 1rem 28%;
+}
+@media (min-width: 576px) {
+  #main .btnNewPost, #userProfile .btnNewPost {
+    margin: 0 0 1rem 35%;
+  }
+}
+@media (min-width: 768px) {
+  #main .btnNewPost, #userProfile .btnNewPost {
+    margin: 0 0 1.5rem 37%;
+  }
+}
+@media (min-width: 1500px) {
+  #main .btnNewPost, #userProfile .btnNewPost {
+    margin: 0 0 1.5rem 40%;
+  }
+}
+#main .btnNewPost a, #userProfile .btnNewPost a {
+  color: #fff;
+}
+#main .btnNewPost a:hover, #userProfile .btnNewPost a:hover {
+  text-decoration: none;
+}
+#main .posts, #userProfile .posts {
+  display: flex;
+  flex-wrap: wrap;
+}
+#main .posts .post, #userProfile .posts .post {
+  position: relative;
+  margin: 0 0 1.75rem 0;
+  width: 100%;
+}
+@media (min-width: 576px) {
+  #main .posts .post, #userProfile .posts .post {
+    width: 45%;
+    margin: 0 1.5rem 1.5rem 0;
+  }
+}
+@media (min-width: 992px) {
+  #main .posts .post, #userProfile .posts .post {
+    width: 28%;
+  }
+}
+@media (min-width: 1500px) {
+  #main .posts .post, #userProfile .posts .post {
+    width: 22%;
+  }
+}
+#main .posts .post:hover .icons, #userProfile .posts .post:hover .icons {
+  top: 0;
+  height: 100%;
+  background-color: #e7e7e7;
+  opacity: 0.6;
+  transition: opacity 0.2s ease-out;
+}
+#main .posts .post > img, #userProfile .posts .post > img {
+  width: 100%;
+  height: 23rem;
+  object-fit: cover;
+  object-position: center;
+}
+@media (min-width: 576px) {
+  #main .posts .post > img, #userProfile .posts .post > img {
+    height: 21rem;
+  }
+}
+@media (min-width: 992px) {
+  #main .posts .post > img, #userProfile .posts .post > img {
+    height: 19rem;
+  }
+}
+#main .posts .post .icons, #userProfile .posts .post .icons {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -3rem;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  width: 100%;
+  cursor: pointer;
+}
+#main .posts .post .icons div, #userProfile .posts .post .icons div {
+  display: flex;
+  align-items: center;
+}
+#main .posts .post .icons img, #userProfile .posts .post .icons img {
+  width: 2.5rem;
+  margin: 0 0.25rem 0 0;
+}
+#main .posts .post .icons .userDivIcons, #userProfile .posts .post .icons .userDivIcons {
+  margin: 0 2rem 0 0;
+}
+
+#userProfile {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  #userProfile {
+    width: 70%;
+  }
+}
+#userProfile .dataUser {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 0 0 1.5rem;
+}
+#userProfile .dataUser img {
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  border: 2px solid #800080;
+}
+@media (min-width: 768px) {
+  #userProfile .dataUser img {
+    width: 9rem;
+    height: 9rem;
+    border: 3px solid #800080;
+  }
+}
+#userProfile .dataUser .data {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+}
+#userProfile .dataUser .data .title-h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+}
+@media (min-width: 768px) {
+  #userProfile .dataUser .data .title-h2 {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+  }
+}
+#userProfile .dataUser .data .btnFollow {
+  height: 2.25rem;
+  width: 5.25rem;
+}
+#userProfile .dataUser .data .title-h4 {
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  #userProfile .dataUser .data .title-h4 {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  #userProfile .dataUser .data .userDescription {
+    margin: 0.5rem 0;
+  }
+}
+@media (min-width: 768px) {
+  #userProfile .dataUser .data {
+    margin: 0 2rem;
+  }
+}
+@media (min-width: 992px) {
+  #userProfile .dataUser .data {
+    margin: 0 6rem;
+  }
+}
+@media (min-width: 768px) {
+  #userProfile .dataUser {
+    margin: 0 0 3rem;
+  }
+}
+
+#showPost {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  #showPost {
+    width: 70%;
+  }
+}
+#showPost .postImg {
+  width: 100%;
+  background-color: black;
+  border-radius: 5px;
+  padding: 1rem;
+}
+#showPost .postImg img {
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  height: 80vh;
+}
+@media (min-width: 768px) {
+  #showPost .postImg {
+    width: 70%;
+  }
+}
+#showPost .postDesc {
+  margin: 0.5rem 0 0;
+}
+#showPost .postDesc .adjust {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#showPost .postDesc .adjust img {
+  width: 1.5rem;
+}
+@media (min-width: 768px) {
+  #showPost .postDesc .adjust img {
+    width: 2rem;
+  }
+}
+#showPost .postDesc .description {
+  margin: 0rem 0 0.75rem;
+}
+@media (min-width: 768px) {
+  #showPost .postDesc .description {
+    margin: 0.1rem 0 1rem;
+  }
+}
+#showPost .postDesc .postLikes {
+  display: flex;
+  align-items: center;
+  margin: 0.1rem 0 0.25rem;
+}
+#showPost .postDesc .postLikes img {
+  width: 1.25rem;
+  margin: 0 0.25rem 0 0;
+}
+@media (min-width: 768px) {
+  #showPost .postDesc .postLikes {
+    width: 1.5rem;
+    margin: 0.75rem 0 0.5rem;
+  }
+}
+#showPost .postDesc .postComments {
+  margin: 0.25rem 0 0;
+}
+#showPost .postDesc .postComments > p {
+  font-size: 0.8rem;
+}
+#showPost .postDesc .postComments .comment {
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0 0;
+  box-shadow: inset 0px 0px 2px 2px #bdbdbd;
+}
+#showPost .postDesc .postComments .comment p:first-child {
+  font-size: 0.8rem;
+  margin: 0 0 0.15rem;
+}
+#showPost .postDesc .postComments .comment form {
+  display: inline;
+}
+@media (min-width: 768px) {
+  #showPost .postDesc .postComments {
+    margin: 1rem 0 0;
+  }
+}
+@media (min-width: 768px) {
+  #showPost .postDesc {
+    width: 30%;
+    margin: 0.5rem 0 0 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  #showPost {
+    flex-direction: row;
+  }
+}
+
+#newComment div {
+  margin: 0 0 0.5rem;
+}
+#newComment label.desc {
+  display: none;
+}
+#newComment textarea {
+  resize: none;
+  height: 3rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+}
+@media (min-width: 768px) {
+  #newComment textarea {
+    height: 4rem;
+  }
+}
+@media (min-width: 768px) {
+  #newComment textarea {
+    font-size: 1rem;
+  }
+}
+
+#listUsers {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  #listUsers {
+    width: 70%;
+  }
+}
+#listUsers div {
+  border-bottom: 1px solid #bdbdbd;
+  padding: 0.5rem 0;
+}
+#listUsers div img {
+  width: 1.75rem;
+  border-radius: 50%;
+  border: 1px solid #800080;
+  margin: 0 0.5rem 0 0;
+}
+@media (min-width: 768px) {
+  #listUsers div img {
+    width: 2.5rem;
+  }
+}
+
+#indexReports {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex: 1 0 auto;
+}
+@media (min-width: 768px) {
+  #indexReports {
+    width: 70%;
+  }
+}
+#indexReports .imgCheck {
+  width: 2rem;
+}
+#indexReports table {
+  height: 100%;
+}
+
+#analytics {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  #analytics {
+    width: 70%;
+  }
+}
+#analytics p {
+  margin: 0 0 0.5rem;
+}
+#analytics #googleCharts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0 0;
+}
+#analytics #googleCharts div {
+  margin: 0 0 0.5rem;
+}
+@media (min-width: 768px) {
+  #analytics #googleCharts div {
+    margin: 0 0.75rem 0 0;
+  }
+}
+@media (min-width: 768px) {
+  #analytics #googleCharts {
+    flex-direction: row;
+    align-items: unset;
+    margin: 0.75rem 0 1.4rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

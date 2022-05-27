@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar comentario{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="editComment">
+    {{ include('comment/_form.html.twig', {'button_label': 'Actualizar'}) }}
+</section>
+
+{{include('_footer.html.twig')}}
+{#{{ include('comment/_delete_form.html.twig') }}#}
+{% endblock %}

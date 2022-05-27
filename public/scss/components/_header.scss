@@ -1,0 +1,84 @@
+header{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:0.25rem 0;
+    background-color:$header-bgcolor;
+    border-bottom:1px solid $border-grey;
+    position:sticky;
+    margin:0 0 1rem;
+    top:0;
+    z-index:99;
+
+    @include response(md){
+        padding:0.5rem 0;
+        margin:0 0 1.5rem;
+    }
+
+    & h1{
+        font-size:$font-h4-small;
+        margin:0 0 0.25rem;
+
+        @include response(md){
+            font-size:$font-size-title;
+        }
+    }
+
+    & form{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    & input[type="search"]{
+        border:1px solid #CACACA;
+        border-radius:5px;
+        padding:0.2rem 0.2rem;
+        width:9rem;
+
+        @include response(md){
+            width:15rem;
+            padding:0.2rem 0.5rem;;
+        }
+    }
+
+    & #search{
+        background-image: url("/img/iconSearch.svg");
+        background-position:center;
+        background-size:contain;
+        width:1.5rem;
+        height:1.5rem;
+        background-color:none;
+        border:none;
+        background-repeat:no-repeat;
+        border-radius:5px;
+        margin-left:0.25rem;
+
+        @include response(md){
+            width:2rem;
+            height:2rem;
+        }
+    }
+
+    & .divImage {
+    cursor: pointer;
+    }
+
+    & img{
+        width:1.75rem;
+        border-radius:50%;
+        border:2px solid $purple;
+
+        @include response(md){
+            width:3rem;
+        }
+    }
+    & h1 a{
+        color:unset;
+
+        &:hover{
+            text-decoration: unset;
+            color:unset;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<header>
+    <h1><a href="/">Myinstagram</a></h1>
+    <div class="d-flex">
+        <form action="/search" method="POST">
+            <input type="search" placeholder="Buscar" name="searchField"/>
+            <input type="submit" name="searchSubmit" id="search" value=""/>
+        </form>
+    </div>
+    <div>
+        <div class="divImage" data-toggle="dropdown" aria-expanded="false">
+            <img src="/databaseImg/{{app.user.fotoPerfil}}" alt="{{app.user.nombreUsuario}}" />
+        </div>
+
+        <div class="dropdown-menu">
+            <a href="/user/{{app.user.nombreUsuario}}" class="dropdown-item" type="button">Ver perfil</a>
+            <a href="/user/{{app.user.nombreUsuario}}/edit" class="dropdown-item" type="button">Editar perfil</a>
+            {% if is_granted("ROLE_ADMIN") %}
+                <a href="/analytics" class="dropdown-item" type="button">Analíticas</a>
+                <a href="/report" class="dropdown-item" type="button">Denuncias</a>
+            {% endif %}
+            <a href="/logout" class="dropdown-item" type="button">Cerrar sesión</a>
+        </div>
+    </div>
+</header>

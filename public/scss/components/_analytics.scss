@@ -1,0 +1,29 @@
+#analytics{
+    @include mainSection;
+    flex-direction:column;
+
+    p{
+        margin:0 0 0.5rem;
+    }
+
+    #googleCharts{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        margin:0.5rem 0 0;
+
+        & div{
+            margin:0 0 0.5rem;
+
+            @include response(md){
+                margin:0 0.75rem 0 0;
+            }
+        }
+
+        @include response(md){
+            flex-direction:row;
+            align-items:unset;
+            margin:0.75rem 0 1.4rem;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="listUsers">
+    {% for person in listUser %}
+    <div>
+        <img src="/databaseImg/{{person.fotoPerfil}}" alt="{{person.nombreUsuario}}" />
+        <a href="/user/{{person.nombreUsuario}}">{{person.nombreUsuario}}</a>
+    </div>
+    {% endfor %}
+</section>
+
+{{include('_footer.html.twig')}}
+
+{% endblock %}

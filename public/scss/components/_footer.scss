@@ -1,0 +1,25 @@
+footer{
+    flex:0 0 auto;
+    border-top:1px solid $border-grey;
+    padding:1rem;
+    margin:1.5rem 0 0;
+
+    p{
+        margin:0 0 0.5rem;
+        line-height:18px;
+
+        @include response(md){
+            line-height:26px;
+        }
+    }
+
+    a{
+        color:$purple;
+        text-decoration:underline;
+    }
+
+    @include response(md){
+        margin:3rem 0 0;
+        padding:1.5rem 9rem;
+    }
+}

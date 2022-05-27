@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nueva publicación{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="newPost">
+    {{ include('post/_form.html.twig') }}
+</section>
+
+{{include('_footer.html.twig')}}
+
+{% endblock %}

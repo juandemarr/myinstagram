@@ -1,0 +1,99 @@
+#main,#userProfile{
+    @include mainSection;
+    flex-direction:column;
+
+    & .btnNewPost{
+        margin:0 0 1rem 28%;
+
+        @include response(sm){
+            margin:0 0 1rem 35%;
+        }
+        @include response(md){
+            margin:0 0 1.5rem 37%;
+        }
+        @include response(xl){
+            margin:0 0 1.5rem 40%;
+        }
+        & a{
+            color:$white;
+    
+            &:hover{
+                text-decoration:none;
+            }
+        }
+    }
+
+    & .posts{
+        display:flex;
+        flex-wrap: wrap;
+        
+        & .post{
+            position:relative;
+            margin:0 0 1.75rem 0;
+            width: 100%;
+
+            @include response(sm){
+                width:45%;
+                margin:0 1.5rem 1.5rem 0;
+            }
+
+            @include response(lg){
+                width:28%;
+            }
+
+            @include response(xl){
+                width:22%;
+            }
+
+            &:hover .icons{
+                top:0;
+                height:100%;
+                background-color:$body-bgcolor;
+                opacity:0.6;
+                transition:opacity .2s ease-out;
+            }
+
+            & > img{
+               width:100%;
+               height:23rem;
+               object-fit: cover;
+               object-position:center;
+
+               @include response(sm){
+                    height:21rem;
+               }
+
+               @include response(lg){
+                   height:19rem;
+               }
+            }
+
+            & .icons{
+                position:absolute;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                top:-3rem;
+                height:0;
+                opacity:0;
+                overflow:hidden;
+                width:100%;
+                cursor:pointer;
+
+                & div{
+                    display:flex;
+                    align-items:center;
+                }
+
+                & img{
+                    width:2.5rem;
+                    margin:0 0.25rem 0 0;
+                }
+
+                & .userDivIcons{
+                    margin:0 2rem 0 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nuevo comentario{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="newComment">
+    {{ include('comment/_form.html.twig') }}
+</section>
+
+{{include('_footer.html.twig')}}
+
+{% endblock %}

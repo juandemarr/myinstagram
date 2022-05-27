@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Myinstagram{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="main">
+
+    {% if is_granted("ROLE_ADMIN") and numberReports > 0 %}
+        <script>
+            mostrarNotificacion();
+        </script>
+    {% endif %}
+
+    <section>
+        <button class="btn btn-primary btnNewPost"><a href="/post/new">Nueva publicación</a></button>
+    </section>
+
+    <section class="posts">
+        {% for post in posts %}
+
+        <div class="post">
+            
+            <img src="/databaseImg/{{post.foto}}" alt={{post.foto}} />
+            
+            <div class="icons" onclick="window.location='/post/{{post.id}}'">
+                
+                <div class="userDivIcons">
+                    {% if post in usuario.getLikesPost%}
+                        <a href="/post/remove_like/{{post.id}}"><img src="/img/like.png" alt="like"/></a>
+                    {% else %}
+                        <a href="/post/like/{{post.id}}"><img src="/img/dislike.png" alt="like"/></a>
+                    {% endif %}  
+                    <p class="text-center">{{post.getLikes|length}}</p>
+                </div>
+                
+                <div>
+                    <a href="/post/{{post.id}}"><img src="/img/comment.png" alt="like"/></a>
+                    <p class="text-center">{{post.getComments|length}}</p>
+                </div>
+
+            </div>
+            
+        </div>
+        {% endfor %}
+
+    </section>
+
+</section>
+
+{{include('_footer.html.twig')}}
+
+{% endblock %}

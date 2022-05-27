@@ -1,0 +1,11 @@
+#indexReports{
+    @include mainSection;
+
+    & .imgCheck{
+        width:2rem;
+    }
+
+    table{
+        height:100%;
+    }
+}

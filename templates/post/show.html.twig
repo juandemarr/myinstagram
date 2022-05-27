@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publicación de {{post.autor}}{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="showPost">
+    <section class="postImg">
+        <img src="/databaseImg/{{post.foto}}" alt="Publicación {{post.id}}"/>
+    </section>
+
+    <section class="postDesc">
+        <div class="adjust">
+            <p class="font-weight-bold">{{post.autor}}</p>
+
+            <div class="dropleft" >
+                <span type="button" data-toggle="dropdown" aria-expanded="false"><img src="/img/config.png"/></span>
+            
+                <div class="dropdown-menu">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <form method="post" action="{{ path('post_delete', {'id': post.id}) }}" onsubmit="return confirm('¿Quieres borrar este post?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ post.id) }}">
+                            <button class="dropdown-item">Eliminar</button>
+                        </form>
+                    {% elseif app.user == post.autor %}
+                        <a href="/post/edit/{{post.id}}" class="dropdown-item" type="button">Editar</a>
+                        <form method="post" action="{{ path('post_delete', {'id': post.id}) }}" onsubmit="return confirm('¿Quieres borrar este post?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ post.id) }}">
+                            <button class="dropdown-item">Eliminar</button>
+                        </form>
+                    {% endif %}
+                    <a href="/report/new/{{post.id}}" class="dropdown-item" type="button">Reportar</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="description">{{post.descripcion}}</p>
+
+        <div class="postLikes">
+            {% if post in usuario.getLikesPost%}
+                <a href="/post/remove_like/{{post.id}}"><img src="/img/like.png" alt="like"/></a>
+            {% else %}
+                <a href="/post/like/{{post.id}}"><img src="/img/dislike.png" alt="like"/></a>
+            {% endif %}  
+            <p class="text-center">{{post.getLikes|length}}</p>
+        </div>
+
+        <section id="newComment">
+            {{ include('comment/_form.html.twig') }}
+        </section>
+
+        <section class="postComments">
+            <p>{{post.getComments|length}} comentarios</p>
+            {% for comment in post.comments %}
+                <div class="comment">
+                    <p><span class="font-weight-bold ">{{comment.user}}</span> - {{comment.time | date('d/m/Y')}}</p>
+                    <p>{{comment.descripcion}}</p>
+
+                    {% if app.user == comment.user %}
+                        <a class="btnEnlace" href="/comment/edit/{{comment.id}}/{{post.id}}">Editar</a>&nbsp;
+                        <form method="post" action="{{ path('comment_delete', {'id': comment.id , 'post' : post.id}) }}" onsubmit="return confirm('¿Quieres borrar este comentario?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
+                            <button class="btnEnlace">Borrar</button>
+                        </form>
+
+                    {% elseif is_granted("ROLE_ADMIN") %}
+                        <form method="post" action="{{ path('comment_delete', {'id': comment.id , 'post' : post.id}) }}" onsubmit="return confirm('¿Quieres borrar este comentario?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
+                            <button class="btnEnlace">Borrar</button>
+                        </form>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+            
+        </section>
+    </section>
+</section>
+    {# {{ include('post/_delete_form.html.twig') }} #}
+
+{{include('_footer.html.twig')}}
+
+{% endblock %}
